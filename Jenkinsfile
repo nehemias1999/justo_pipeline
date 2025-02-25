@@ -13,6 +13,14 @@ pipeline {
         DbaseServerUsername = 'root'
         DbaseServerPassword = 'root'
 
+        updateScript = '"%MSBuildEXEPath%" "%GenexusPath%\\TeamDev.msbuild" ' +
+                       '/p:DbaseServerUsername=%ServerUserName% ' +
+                       '/p:DbaseServerPassword=%ServerPassword% ' +
+                       '/p:WorkingDirectory="%WorkingDirectory%" ' + 
+                       '/p:ServerUserName=%ServerUserName% ' +
+                       '/p:ServerPassword=%ServerPassword% ' +
+                       '/t:update' 
+
     }
 
     stages {
@@ -24,7 +32,7 @@ pipeline {
                 script {
 
                     bat label: 'Update Script',
-                    script: '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\amd64\\MSBuild.exe" "C:\\Program Files (x86)\\GeneXus\\GeneXus18U9\\TeamDev.msbuild" /p:DbaseServerUsername=sa_jenkins_genexus /p:DbaseServerPassword=567NTb0L4L4wjK4hZkAl /p:WorkingDirectory="C:\\Models\\Estimaciones" /p:ServerUserName=sa_jenkins_genexus /p:ServerPassword=567NTb0L4L4wjK4hZkAl /t:update'
+                    script: "${env.updateScript}"
 
                 }
                 
