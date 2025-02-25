@@ -21,9 +21,13 @@ pipeline {
 
             steps {
 
-                bat label: 'Update Script',
-                script: '"${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /p:DbaseServerUsername='${env.ServerUserName}' /p:DbaseServerPassword='${env.ServerPassword}' /p:WorkingDirectory="${env.WorkingDirectory}" /p:ServerUserName='${env.ServerUsername}' /p:ServerPassword='${env.ServerPassword}' /t:update'
+                script {
 
+                    bat label: 'Update Script',
+                    script: '"${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /p:DbaseServerUsername='${env.ServerUserName}' /p:DbaseServerPassword='${env.ServerPassword}' /p:WorkingDirectory="${env.WorkingDirectory}" /p:ServerUserName='${env.ServerUsername}' /p:ServerPassword='${env.ServerPassword}' /t:update'
+
+                }
+                
             }
 
         }
