@@ -10,8 +10,8 @@ pipeline {
         ServerUsername = 'sa_jenkins_genexus'
         ServerPassword = '567NTb0L4L4wjK4hZkAl'
         WorkingDirectory = "C:\\Models\\Estimaciones"
-        DatabaseUser = 'root'
-        DatabasePassword = 'root'
+        DbaseServerUsername = 'root'
+        DbaseServerPassword = 'root'
 
     }
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
 
                 bat """
-                    "${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /t:update /p:DatabaseUser='${env.DatabaseUser}' /p:DatabasePassword='${env.DatabasePassword}' /p:WorkingDirectory="${env.WorkingDirectory}" /p:ServerUserName='${env.ServerUsername}' /p:ServerPassword='${env.ServerPassword}'
+                    "${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /t:update /p:DbaseServerUsername='${env.DbaseServerUsername}' /p:DbaseServerPassword='${env.DbaseServerPassword}' /p:WorkingDirectory="${env.WorkingDirectory}" /p:ServerUserName='${env.ServerUsername}' /p:ServerPassword='${env.ServerPassword}'
                 """
 
             }
