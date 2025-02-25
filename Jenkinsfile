@@ -20,7 +20,7 @@ pipeline {
             steps {
 
                 bat """
-                    "${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /t:update /p:ServerUserName="${env.ServerUsername}" /p:ServerPassword="${env.ServerPassword}" /p:WorkingDirectory="${env.WorkingDirectory}" /p:DatabaseUser="${env.ServerUserName}" /p:DatabasePassword="${env.ServerPassword}"
+                    "${env.MSBuildEXEPath}" "${env.GenexusPath}\\TeamDev.msbuild" /t:update /p:ServerUserName='${env.ServerUsername}' /p:ServerPassword='${env.ServerPassword}' /p:WorkingDirectory="${env.WorkingDirectory}" /p:DatabaseUser='${env.ServerUserName}' /p:DatabasePassword='${env.ServerPassword}'
                 """
 
             }
